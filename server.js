@@ -10,6 +10,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static("build"));
 
 const uri = process.env.ATLAS_URI;
 
@@ -38,10 +39,10 @@ app.get("/:hash", (req, res) => {
 });
 
 const unknownEndpoint = (request, response) => {
-  response.status(404).send({ error: 'unknown endpoint' })
-}
+  response.status(404).send({ error: "unknown endpoint" });
+};
 
-app.use(unknownEndpoint)
+app.use(unknownEndpoint);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
