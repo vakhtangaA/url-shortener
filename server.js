@@ -12,6 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("build"));
 
+const uri = process.env.ATLAS_URI;
+
 mongoose
   .connect(uri, {
     useNewUrlParser: true,
