@@ -12,10 +12,15 @@ router.post("/", (req, res) => {
   }
   console.log("URL is: ", urlData);
 
-  // Check if the url already exists
   URL.findOne({ url: urlData }, (err, doc) => {
+    // Check if the url already exists
     if (doc) {
-      console.log("Entry found in db");
+      res.send({
+        url: urlData,
+        hash: webaddress.id,
+        status: 200,
+        statusTxt: "OK",
+      });
     } else {
       console.log("this is a new URL");
       const webaddress = new URL({
