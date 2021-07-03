@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static("build"));
 
 const uri = process.env.ATLAS_URI;
+console.log("-----------------uri---------------", uri);
 
 mongoose
   .connect(

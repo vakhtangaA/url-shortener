@@ -11,6 +11,8 @@ router.post("/", (req, res) => {
     urlData = req.body.url;
   }
   console.log("URL is: ", urlData);
+  const uri = process.env.ATLAS_URI;
+  console.log("-----------------uri---------------", uri);
 
   // Check if the url already exists
   URL.findOne({ url: urlData }, (err, doc) => {
