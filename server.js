@@ -15,7 +15,10 @@ app.use(express.static("build"));
 const uri = process.env.ATLAS_URI;
 
 mongoose
-  .connect(uri, { useNewUrlParser: true, useCreateIndex: true })
+  .connect(uri, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+  })
   .then(() => console.log("MongoDb connected"))
   .catch(err => console.log(err));
 
