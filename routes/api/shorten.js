@@ -15,6 +15,10 @@ router.post("/", (req, res) => {
   URL.findOne({ url: urlData }, (err, doc) => {
     // Check if the url already exists
     if (doc) {
+      const webaddress = new URL({
+        _id: uniqid(),
+        url: urlData,
+      });
       res.send({
         url: urlData,
         hash: webaddress.id,
