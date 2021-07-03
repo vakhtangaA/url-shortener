@@ -15,10 +15,13 @@ app.use(express.static("build"));
 const uri = process.env.ATLAS_URI;
 
 mongoose
-  .connect(uri, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-  })
+  .connect(
+    "mongodb+srv://Vakhtang:girvanqa@cluster0.yh8pv.mongodb.net/url-shortener?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+    }
+  )
   .then(() => console.log("MongoDb connected"))
   .catch(err => console.log(err));
 
