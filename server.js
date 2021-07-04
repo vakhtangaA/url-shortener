@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const passport = require("passport");
+
+const users = require("./routes/api/users");
 
 require("dotenv").config();
 
@@ -40,6 +43,13 @@ app.get("/:hash", (req, res) => {
     }
   });
 });
+
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+// Routes
+app.use("/api/users", users);
 
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: "unknown endpoint" });
