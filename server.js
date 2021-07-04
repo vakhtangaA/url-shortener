@@ -2,8 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const passport = require("passport");
-
-const users = require("./routes/api/users");
+const expressLayouts = require("express-ejs-layouts");
 
 require("dotenv").config();
 
@@ -15,6 +14,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("build"));
 
+// EJS
+app.use(expressLayouts);
+app.set("view engine", "ejs");
+
 const uri = process.env.ATLAS_URI;
 
 mongoose
@@ -25,31 +28,17 @@ mongoose
   .then(() => console.log("MongoDb connected"))
   .catch(err => console.log(err));
 
+const index = require("./routes/api/index");
+app.use("/", index);
+
 const shorten = require("./routes/api/shorten");
 app.use("/api/shorten", shorten);
 
 const redirect = require("./routes/api/redirect");
 app.use("/api/redirect", redirect);
 
-app.get("/:hash", (req, res) => {
-  const id = req.params.hash;
-
-  URL.findOne({ _id: id }, (err, doc) => {
-    if (doc) {
-      console.log(doc);
-      res.redirect(doc.url);
-    } else {
-      console.log("/");
-    }
-  });
-});
-
-// Passport middleware
-app.use(passport.initialize());
-// Passport config
-require("./config/passport")(passport);
-// Routes
-app.use("/api/users", users);
+const users = require("./routes/api/users");
+app.use("/users", users);
 
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: "unknown endpoint" });
