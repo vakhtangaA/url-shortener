@@ -19,6 +19,7 @@ router.post("/", (req, res) => {
         _id: doc._id,
         url: urlData,
       });
+      console.log("web", webaddress);
       res.send({
         url: urlData,
         hash: webaddress.id,
@@ -31,6 +32,7 @@ router.post("/", (req, res) => {
         _id: uniqid(),
         url: urlData,
       });
+
       webaddress.save(err => {
         if (err) {
           return console.log(err);
