@@ -1,8 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const passport = require("passport");
-const expressLayouts = require("express-ejs-layouts");
 
 require("dotenv").config();
 
@@ -13,10 +11,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("build"));
-
-// EJS
-app.use(expressLayouts);
-app.set("view engine", "ejs");
 
 const uri = process.env.ATLAS_URI;
 
@@ -36,9 +30,6 @@ app.use("/api/shorten", shorten);
 
 const redirect = require("./routes/api/redirect");
 app.use("/api/redirect", redirect);
-
-const users = require("./routes/api/users");
-app.use("/users", users);
 
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: "unknown endpoint" });
