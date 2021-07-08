@@ -16,7 +16,7 @@ router.post("/", (req, res) => {
     // Check if the url already exists
     if (doc) {
       const webaddress = new URL({
-        _id: uniqid(),
+        _id: doc._id,
         url: urlData,
       });
       res.send({
