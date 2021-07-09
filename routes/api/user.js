@@ -6,13 +6,6 @@ const URL = require("../../models/Urls");
 const USER = require("../../models/User");
 
 router.post("/", (req, res) => {
-  try {
-    if (req.body) {
-      res.send(req.body);
-    }
-  } catch (error) {
-    console.log(error);
-  }
   console.log("user--", req.body);
 });
 

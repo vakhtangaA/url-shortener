@@ -3,7 +3,6 @@ const router = express.Router();
 const uniqid = require("uniqid");
 
 const URL = require("../../models/Urls");
-const USER = require("../../models/User");
 
 router.post("/", (req, res) => {
   if (req.body.url) {
