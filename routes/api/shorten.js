@@ -3,8 +3,7 @@ const router = express.Router();
 const uniqid = require("uniqid");
 
 const URL = require("../../models/Urls");
-
-router.get("/test", (req, res) => res.json({ msg: "API is working" }));
+const USER = require("../../models/User");
 
 router.post("/", (req, res) => {
   if (req.body.url) {
@@ -15,14 +14,14 @@ router.post("/", (req, res) => {
   URL.findOne({ url: urlData }, (err, doc) => {
     // Check if the url already exists
     if (doc) {
-      const webaddress = new URL({
-        _id: doc._id,
-        url: urlData,
-      });
-      console.log("web", webaddress);
+      // const webaddress = new URL({
+      //   _id: doc._id,
+      //   url: urlData,
+      // });
+      // console.log("web", webaddress);
       res.send({
         url: urlData,
-        hash: webaddress.id,
+        hash: doc._id,
         status: 200,
         statusTxt: "OK",
       });
@@ -33,7 +32,7 @@ router.post("/", (req, res) => {
         url: urlData,
       });
 
-      webaddress.save(err => {
+      webaddress.save((err) => {
         if (err) {
           return console.log(err);
         }

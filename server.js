@@ -20,7 +20,7 @@ mongoose
     useCreateIndex: true,
   })
   .then(() => console.log("MongoDb connected"))
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 
 const index = require("./routes/api/index");
 app.use("/", index);
@@ -30,6 +30,9 @@ app.use("/api/shorten", shorten);
 
 const redirect = require("./routes/api/redirect");
 app.use("/api/redirect", redirect);
+
+const user = require("./routes/api/user");
+app.use("/api/create", user);
 
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: "unknown endpoint" });
