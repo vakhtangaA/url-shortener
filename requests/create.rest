@@ -1,7 +1,7 @@
-POST http://localhost:5000/api/shorten/
+POST http://localhost:5000/api/create/
 
 Content-Type: application/json
 
 {
-  urlData: "www.facebook.com"
+  name: "vakho"
 }

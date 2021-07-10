@@ -13,11 +13,6 @@ router.post("/", (req, res) => {
   URL.findOne({ url: urlData }, (err, doc) => {
     // Check if the url already exists
     if (doc) {
-      // const webaddress = new URL({
-      //   _id: doc._id,
-      //   url: urlData,
-      // });
-      // console.log("web", webaddress);
       res.send({
         url: urlData,
         hash: doc._id,
