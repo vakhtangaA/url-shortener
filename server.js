@@ -33,6 +33,10 @@ app.use("/api/redirect", redirect);
 
 const user = require("./routes/api/user");
 app.use("/api/create", user);
+app.use("/api/user", user);
+
+const urls = require("./routes/api/urls");
+app.use("/api/urls", urls);
 
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: "unknown endpoint" });

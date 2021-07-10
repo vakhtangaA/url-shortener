@@ -7,10 +7,10 @@ router.get("/", (req, res) => {
   URL.findOne({
     _id: hash,
   })
-    .then(doc => {
+    .then((doc) => {
       return res.json({ url: doc.url });
     })
-    .catch(err => {
+    .catch((err) => {
       return res.status(400).json({ error: "This link may have expired" });
     });
 });

@@ -6,7 +6,6 @@ const URL = require("../../models/Urls");
 const USER = require("../../models/User");
 
 router.post("/", (req, res) => {
-  console.log("user--", req.body);
   const { email, name, url } = req.body;
   if (email) {
     USER.findOne({ email: email }, (err, user) => {
@@ -48,6 +47,16 @@ router.post("/", (req, res) => {
       }
     });
   }
+});
+
+router.get("/:email", (req, res) => {
+  USER.findOne({ email: req.params.email }, (err, user) => {
+    if (user) {
+      res.send(user);
+    } else {
+      console.log("user doesn't exist");
+    }
+  });
 });
 
 module.exports = router;
