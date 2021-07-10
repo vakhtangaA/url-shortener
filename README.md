@@ -24,7 +24,7 @@ Frontend has its own repo https://github.com/vakhtangaA/url-shortener-frontend. 
 In main app frontend build is used as static content.
 
 For frontend I used Material-UI, as I was  familiar with it and it offers great flexibility.\
-User authentication is handled by auth0.\
+User authentication is handled by auth0.
 
 #### Features
 
