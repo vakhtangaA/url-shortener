@@ -11,6 +11,7 @@ router.get("/", (req, res) => {
       console.log(err);
     }
   });
+  URL.updateMany({}, { $set: { visited: 0 } });
 });
 
 module.exports = router;

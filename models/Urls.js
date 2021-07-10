@@ -15,6 +15,10 @@ const UrlSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  visited: {
+    type: Number,
+    default: 0,
+  },
 });
 
 module.exports = URL = mongoose.model("URL", UrlSchema);
