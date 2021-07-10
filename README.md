@@ -35,7 +35,7 @@ User authentication is handled by auth0.
 
 #### Lack of feature
 
-App can't handle to count how many visitors used shortened link. In the first week of challenge I had no time for working and due to this fact :)) ramaining time wasn't enough for me to implement this feature as well.
+App can't handle to count how many visitors used shortened link. In the first week of challenge I had no time for working and due to this fact :)) ramaining time wasn't enough for me to implement this feature, unfortunatly :(.
 
 #### Joke 
 
