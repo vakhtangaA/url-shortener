@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const URL = require("../../models/Urls");
-const USER = require("../../models/User");
 
 router.get("/:hash", (req, res) => {
   const id = req.params.hash;
@@ -11,16 +10,7 @@ router.get("/:hash", (req, res) => {
     if (url) {
       console.log(url);
       const visited = url.visited + 1;
-
-      URL.updateOne(
-        { _id: id },
-        {
-          visited: visited,
-        },
-        {
-          new: true,
-        }
-      );
+      console.log("visited", visited);
 
       res.redirect(url.url);
     } else {
