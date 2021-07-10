@@ -22,7 +22,7 @@ router.get("/:hash", (req, res) => {
         }
       );
 
-      res.redirect(doc.url);
+      res.redirect(url.url);
     } else {
       console.log(err);
     }
