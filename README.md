@@ -33,10 +33,6 @@ User authentication is handled by auth0.
 3. Profile page
 4. Dashboard page where you can see all urls in database with their corresponding short urls
 
-#### Lack of feature
-
-App can't handle to count how many visitors used shortened link. In the first week of challenge I had no time for working and due to this fact :)) ramaining time wasn't enough for me to implement this feature, unfortunatly :(.
-
 #### Joke 
 
 If you put very short url and shorten it, app would make it longer 😄 this is because of long heroku doamin. With proper, short domain it would be better looking, so please use long urls :d
